@@ -13,16 +13,25 @@ module.exports = function api(options){
 		this.act('area:products', {cmd:operation, data:data}, done)
 	})
 
+	this.add('role:api, path:orders', function(msg, done){
+		var operation = msg.args.params.operation
+		var data = msg.args.body
+		this.act('area:orders', {cmd:operation, data:data}, done)
+	})
+
 	this.add('init:api', function(msg, done){
 		//endpoint: ${prefix}/${key}/${postfix}/${suffix}
-		this.act('role:web', {routes:{
-			pin:'role:api, path:*',
-			prefix:'/api',
-			map:{
-				calculate:{GET:true, suffix:'/:operation'},
-				products:{GET:true, POST:true, suffix:'/:operation'}
-			}
-		}}, done)
+		this.act('role:web', {
+				routes:[{
+					pin:'role:api, path:*',
+					prefix:'/api',
+					map:{
+						calculate:{GET:true, suffix:'/:operation'},
+						products:{GET:true, POST:true, suffix:'/:operation'},
+						orders:{GET:true, POST:true, suffix:'/:operation'}
+					}
+				}]
+			}, done)
 	})
 
 }

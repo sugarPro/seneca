@@ -1,7 +1,7 @@
 {
-  "name": "microservice-with-node",
+  "name": "seneca",
   "version": "1.0.0",
-  "description": "",
+  "description": "microservice-with-node",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.18.2",

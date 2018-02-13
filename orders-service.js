@@ -1,0 +1,1 @@
+var seneca = require('seneca')().use('entity').use('orders').listen(3002)

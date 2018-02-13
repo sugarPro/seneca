@@ -23,5 +23,6 @@ seneca.use(senecaWeb, senecaWebConfig)
 	.use('entity')
 	.use('api')
 	.client({port:3001, pin:'area:products'})
+	.client({port:3002, pin:'area:orders'})
 	.client({pin:'area:math'})
 
